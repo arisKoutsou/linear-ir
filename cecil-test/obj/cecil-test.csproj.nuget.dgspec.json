@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/aris/Desktop/di/thesis/cecil-test/cecil-test.csproj": {}
+  },
+  "projects": {
+    "/home/aris/Desktop/di/thesis/cecil-test/cecil-test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/aris/Desktop/di/thesis/cecil-test/cecil-test.csproj",
+        "projectName": "cecil-test",
+        "projectPath": "/home/aris/Desktop/di/thesis/cecil-test/cecil-test.csproj",
+        "packagesPath": "/home/aris/.nuget/packages/",
+        "outputPath": "/home/aris/Desktop/di/thesis/cecil-test/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/aris/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Mono.Cecil": {
+              "target": "Package",
+              "version": "[0.11.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

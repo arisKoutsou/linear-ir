@@ -1,0 +1,16 @@
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/cecil-test
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/cecil-test.deps.json
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/cecil-test.runtimeconfig.json
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/cecil-test.runtimeconfig.dev.json
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/cecil-test.dll
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/cecil-test.pdb
+/home/aris/Desktop/di/thesis/cecil-test/obj/Debug/netcoreapp3.1/cecil-test.csprojAssemblyReference.cache
+/home/aris/Desktop/di/thesis/cecil-test/obj/Debug/netcoreapp3.1/cecil-test.AssemblyInfoInputs.cache
+/home/aris/Desktop/di/thesis/cecil-test/obj/Debug/netcoreapp3.1/cecil-test.AssemblyInfo.cs
+/home/aris/Desktop/di/thesis/cecil-test/obj/Debug/netcoreapp3.1/cecil-test.dll
+/home/aris/Desktop/di/thesis/cecil-test/obj/Debug/netcoreapp3.1/cecil-test.pdb
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/Mono.Cecil.Mdb.dll
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/Mono.Cecil.Pdb.dll
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/Mono.Cecil.Rocks.dll
+/home/aris/Desktop/di/thesis/cecil-test/bin/Debug/netcoreapp3.1/Mono.Cecil.dll
+/home/aris/Desktop/di/thesis/cecil-test/obj/Debug/netcoreapp3.1/cecil-test.csproj.CopyComplete
