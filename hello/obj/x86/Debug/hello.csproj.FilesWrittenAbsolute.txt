@@ -1,0 +1,5 @@
+/home/aris/Desktop/di/thesis/hello/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/aris/Desktop/di/thesis/hello/bin/Debug/hello.exe.mdb
+/home/aris/Desktop/di/thesis/hello/bin/Debug/hello.exe
+/home/aris/Desktop/di/thesis/hello/obj/x86/Debug/hello.exe
+/home/aris/Desktop/di/thesis/hello/obj/x86/Debug/hello.exe.mdb

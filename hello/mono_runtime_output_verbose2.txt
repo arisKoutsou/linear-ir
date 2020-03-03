@@ -1,0 +1,211 @@
+Mono Ahead of Time compiler - compiling assembly /home/aris/Desktop/di/thesis/hello/Program.exe
+converting method hello.MainClass:.ctor ()
+remove_block_if_useless, removed BB3
+BB0 IN: 
+BB2 IN: 0 
+BB1 IN: 2 
+DTREE hello.MainClass:.ctor () 0
+BB0(dfn=0) (IDOM=BB-1):  BB0
+BB2(dfn=1) (IDOM=BB0):  BB0 BB2
+BB1(dfn=2) (IDOM=BB2):  BB0 BB2 BB1
+
+LIVENESS:
+BLOCK BB0 (BB2, ):
+GEN  BB0: {}
+KILL BB0: {}
+BLOCK BB2 (BB1, ):
+GEN  BB2: {}
+KILL BB2: {}
+BLOCK BB1 ():
+GEN  BB1: {}
+KILL BB1: {}
+
+ITERATION:
+P: BB1(2): IN: BB2 OUT:
+P: BB2(1): IN: BB0 OUT:BB1 
+	LIVE IN  BB2: {}
+P: BB0(0): IN: OUT:BB2 
+	LIVE IN  BB0: {}
+IT: 3 2.
+LIVE IN  BB1: {}
+LIVE OUT BB1: {}
+LIVE IN  BB2: {}
+LIVE OUT BB2: {}
+LIVE IN  BB0: {}
+LIVE OUT BB0: {}
+V0: [0x0 - 0x0]
+LIVENESS 2 hello.MainClass:.ctor ()
+LIVENESS BLOCK BB1:
+LIVENESS BLOCK BB2:
+LIVENESS BLOCK BB0:
+CFA: [0] def_cfa: %rsp+0x8
+CFA: [0] offset: unknown at cfa-0x8
+CFA: [4] def_cfa_offset: 0x10
+CFA: [8] def_cfa: %rsp+0x8
+Method hello.MainClass:.ctor () emitted at 0x41ae0ba0 to 0x41ae0ba9 (code length 9) [Program.exe]
+
+/tmp/.xPAgle:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <lo_MainClass__ctor>:
+<BB>:1
+   0:	48 83 ec 08          	sub    $0x8,%rsp
+   4:	48 83 c4 08          	add    $0x8,%rsp
+   8:	c3                   	retq   
+converting method hello.MainClass:Main (string[])
+remove_block_if_useless, removed BB3
+BB0 IN: 
+BB2 IN: 0 
+BB1 IN: 2 
+DTREE hello.MainClass:Main (string[]) 0
+BB0(dfn=0) (IDOM=BB-1):  BB0
+BB2(dfn=1) (IDOM=BB0):  BB0 BB2
+BB1(dfn=2) (IDOM=BB2):  BB0 BB2 BB1
+
+LIVENESS:
+BLOCK BB0 (BB2, ):
+GEN  BB0: {}
+KILL BB0: {}
+BLOCK BB2 (BB1, ):
+	 iconst R24 <- [5120]
+	 sext_i4 R27 <- R24
+	 voidcall [System.Console:WriteLine (long)] [%rdi <- R27] clobbers: c
+GEN  BB2: {}
+KILL BB2: {}
+BLOCK BB1 ():
+GEN  BB1: {}
+KILL BB1: {}
+
+ITERATION:
+P: BB1(2): IN: BB2 OUT:
+P: BB2(1): IN: BB0 OUT:BB1 
+	LIVE IN  BB2: {}
+P: BB0(0): IN: OUT:BB2 
+	LIVE IN  BB0: {}
+IT: 3 2.
+LIVE IN  BB1: {}
+LIVE OUT BB1: {}
+LIVE IN  BB2: {}
+LIVE OUT BB2: {}
+LIVE IN  BB0: {}
+LIVE OUT BB0: {}
+V0: [0x0 - 0x0]
+LIVENESS 2 hello.MainClass:Main (string[])
+LIVENESS BLOCK BB1:
+LIVENESS BLOCK BB2:
+	40004:  voidcall [System.Console:WriteLine (long)] [%rdi <- R27] clobbers: c
+	40003:  sext_i4 R27 <- R24
+	40002:  iconst R24 <- [5120]
+LIVENESS BLOCK BB0:
+CFA: [0] def_cfa: %rsp+0x8
+CFA: [0] offset: unknown at cfa-0x8
+CFA: [4] def_cfa_offset: 0x10
+CFA: [15] def_cfa: %rsp+0x8
+Method hello.MainClass:Main (string[]) emitted at 0x41ae0bb0 to 0x41ae0bc6 (code length 22) [Program.exe]
+
+/tmp/.uwXtv7:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <lo_MainClass_Main>:
+<BB>:2
+   0:	48 83 ec 08          	sub    $0x8,%rsp
+   4:	b8 00 14 00 00       	mov    $0x1400,%eax
+   9:	48 63 f8             	movslq %eax,%rdi
+   c:	e8 0f cf 84 fd       	callq  fffffffffd84cf20 <lo_MainClass_Main+0xfffffffffd84cf20>
+<BB>:1
+  11:	48 83 c4 08          	add    $0x8,%rsp
+  15:	c3                   	retq   
+converting method hello.MainClass:Add (int,int)
+remove_block_if_useless, removed BB3
+BB0 IN: 
+BB2 IN: 0 
+BB1 IN: 2 
+DTREE hello.MainClass:Add (int,int) 0
+BB0(dfn=0) (IDOM=BB-1):  BB0
+BB2(dfn=1) (IDOM=BB0):  BB0 BB2
+BB1(dfn=2) (IDOM=BB2):  BB0 BB2 BB1
+
+LIVENESS:
+BLOCK BB0 (BB2, ):
+GEN  BB0: {}
+KILL BB0: {}
+BLOCK BB2 (BB1, ):
+	 int_add R21 <- R17 R18 clobbers: 1
+	GEN: R17(1)
+	GEN: R18(2)
+	 sext_i4 R16 <- R21
+	KILL: R16(0)
+GEN  BB2: {1, 2}
+KILL BB2: {0}
+BLOCK BB1 ():
+GEN  BB1: {}
+KILL BB1: {}
+
+ITERATION:
+P: BB1(2): IN: BB2 OUT:
+P: BB2(1): IN: BB0 OUT:BB1 
+	LIVE IN  BB2: {1, 2}
+P: BB0(0): IN: OUT:BB2 
+	LIVE IN  BB0: {1, 2}
+IT: 3 2.
+LIVE IN  BB1: {}
+LIVE OUT BB1: {}
+LIVE IN  BB2: {1, 2}
+LIVE OUT BB2: {}
+LIVE IN  BB0: {1, 2}
+LIVE OUT BB0: {1, 2}
+V0: [0x0 - 0x40005]
+V1: [0x0 - 0x40002]
+V2: [0x0 - 0x40002]
+LIVENESS 2 hello.MainClass:Add (int,int)
+LIVENESS BLOCK BB1:
+Var R16 live at enter, add range to R16: [80001, bffff)
+LIVENESS BLOCK BB2:
+	40003:  sext_i4 R16 <- R21
+	add range to R16: [40003, 80001)
+	40002:  int_add R21 <- R17 R18 clobbers: 1
+	last use of R17 set to 40002
+	last use of R18 set to 40002
+Var R17 live at enter, add range to R17: [40001, 40002)
+Var R18 live at enter, add range to R18: [40001, 40002)
+LIVENESS BLOCK BB0:
+Var R17 live at exit, set last_use to 40001
+Var R18 live at exit, set last_use to 40001
+Var R16 live at enter, add range to R16: [1, 40001)
+Var R17 live at enter, add range to R17: [1, 40001)
+Var R18 live at enter, add range to R18: [1, 40001)
+CFA: [0] def_cfa: %rsp+0x8
+CFA: [0] offset: unknown at cfa-0x8
+CFA: [4] def_cfa_offset: 0x20
+CFA: [1b] def_cfa: %rsp+0x8
+Method hello.MainClass:Add (int,int) emitted at 0x41ae0bd0 to 0x41ae0bec (code length 28) [Program.exe]
+
+/tmp/.1CtDI0:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <lo_MainClass_Add>:
+<BB>:2
+   0:	48 83 ec 18          	sub    $0x18,%rsp
+   4:	48 89 3c 24          	mov    %rdi,(%rsp)
+   8:	48 89 74 24 08       	mov    %rsi,0x8(%rsp)
+   d:	48 8b c7             	mov    %rdi,%rax
+  10:	03 44 24 08          	add    0x8(%rsp),%eax
+  14:	48 63 c0             	movslq %eax,%rax
+<BB>:1
+  17:	48 83 c4 18          	add    $0x18,%rsp
+  1b:	c3                   	retq   
+Method hello.MainClass:.ctor () emitted as .Lm_0
+Method hello.MainClass:Main (string[]) emitted as .Lm_1
+Method hello.MainClass:Add (int,int) emitted as .Lm_2
+Code: 59(22%) Info: 6(2%) Ex Info: 21(7%) Unwind Info: 34(12%) Class Info: 30(11%) PLT: 10(3%) GOT Info: 11(4%) Offsets: 95(35%) GOT: 56
+Compiled: 3/3 (100%), No GOT slots: 3 (100%), Direct calls: 0 (100%)
+Executing the native assembler: "as" --64  -o /home/aris/Desktop/di/thesis/hello/Program.exe.o /tmp/mono_aot_c8TFls
+Output file: '/home/aris/Desktop/di/thesis/hello/Program.exe.o'.
+Linking symbol: 'mono_aot_module_Program_info'.
+JIT time: 31 ms, Generation time: 0 ms, Assembly+Link time: 6 ms.

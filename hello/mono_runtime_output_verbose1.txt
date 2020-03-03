@@ -1,0 +1,16 @@
+Mono Ahead of Time compiler - compiling assembly /home/aris/Desktop/di/thesis/hello/Program.exe
+converting method hello.MainClass:.ctor ()
+Method hello.MainClass:.ctor () emitted at 0x40869ba0 to 0x40869ba9 (code length 9) [Program.exe]
+converting method hello.MainClass:Main (string[])
+Method hello.MainClass:Main (string[]) emitted at 0x40869bb0 to 0x40869bc6 (code length 22) [Program.exe]
+converting method hello.MainClass:Add (int,int)
+Method hello.MainClass:Add (int,int) emitted at 0x40869bd0 to 0x40869bec (code length 28) [Program.exe]
+Method hello.MainClass:.ctor () emitted as .Lm_0
+Method hello.MainClass:Main (string[]) emitted as .Lm_1
+Method hello.MainClass:Add (int,int) emitted as .Lm_2
+Code: 59(22%) Info: 6(2%) Ex Info: 21(7%) Unwind Info: 34(12%) Class Info: 30(11%) PLT: 10(3%) GOT Info: 11(4%) Offsets: 95(35%) GOT: 56
+Compiled: 3/3 (100%), No GOT slots: 3 (100%), Direct calls: 0 (100%)
+Executing the native assembler: "as" --64  -o /home/aris/Desktop/di/thesis/hello/Program.exe.o /tmp/mono_aot_DTVXDO
+Output file: '/home/aris/Desktop/di/thesis/hello/Program.exe.o'.
+Linking symbol: 'mono_aot_module_Program_info'.
+JIT time: 0 ms, Generation time: 0 ms, Assembly+Link time: 11 ms.

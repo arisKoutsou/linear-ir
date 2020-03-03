@@ -1,0 +1,74 @@
+.assembly extern mscorlib
+{
+  .ver 4:0:0:0
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 ) // .z\V.4..
+}
+.assembly 'Program'
+{
+  .custom instance void class [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::'.ctor'() =  (
+		01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+		63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01       ) // ceptionThrows.
+
+  .hash algorithm 0x00008004
+  .ver  0:0:0:0
+}
+.module Program.exe // GUID = {AE787EAB-D104-4A6E-A773-5C9635C38F1A}
+
+
+.namespace hello
+{
+  .class private auto ansi beforefieldinit MainClass
+  	extends [mscorlib]System.Object
+  {
+
+    // method line 1
+    .method public hidebysig specialname rtspecialname 
+           instance default void '.ctor' ()  cil managed 
+    {
+        // Method begins at RVA 0x2050
+	// Code size 7 (0x7)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  call instance void object::'.ctor'()
+	IL_0006:  ret 
+    } // end of method MainClass::.ctor
+
+    // method line 2
+    .method public static hidebysig 
+           default void Main (string[] args)  cil managed 
+    {
+        // Method begins at RVA 0x2058
+	.entrypoint
+	// Code size 21 (0x15)
+	.maxstack 8
+	IL_0000:  ldc.i4 1024
+	IL_0005:  ldc.i4 4096
+	IL_000a:  call int64 class hello.MainClass::Add(int32, int32)
+	IL_000f:  call void class [mscorlib]System.Console::WriteLine(int64)
+	IL_0014:  ret 
+    } // end of method MainClass::Main
+
+    // method line 3
+    .method public static hidebysig 
+           default int64 Add (int32 x, int32 y)  cil managed 
+    {
+        // Method begins at RVA 0x206e
+	// Code size 16 (0x10)
+	.maxstack 8
+	IL_0000:  ldarg.0 
+	IL_0001:  brtrue IL_000b
+
+	IL_0006:  ldarg.0 
+	IL_0007:  ldc.i4.1 
+	IL_0008:  add 
+	IL_0009:  starg.s 0
+	IL_000b:  ldarg.0 
+	IL_000c:  ldarg.1 
+	IL_000d:  add 
+	IL_000e:  conv.i8 
+	IL_000f:  ret 
+    } // end of method MainClass::Add
+
+  } // end of class hello.MainClass
+}
+
