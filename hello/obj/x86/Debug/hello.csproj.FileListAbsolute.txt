@@ -1,1 +1,0 @@
-/home/aris/Desktop/di/thesis/hello/obj/x86/Debug/hello.exe
