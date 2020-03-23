@@ -30,7 +30,7 @@ public class CilControlFlowGraph
      }
 
     public override String ToString() {
-        return String.Join('\n', BasicBlocks);
+        return String.Join("\n", BasicBlocks);
     }
 
     public MethodReference Method { get; private set; }

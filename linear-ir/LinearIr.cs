@@ -177,7 +177,7 @@ public class LinearIr {
                         .Select(x => x.Label);
                 sb.Append(
                     (targetBasicBlocks.Count() > 1 ? " | targets: " : " | target: ")
-                     + String.Join(' ', targetBasicBlocks));
+                     + String.Join(" ", targetBasicBlocks));
             }
             sb.AppendLine();
         }

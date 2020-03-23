@@ -37,8 +37,8 @@ public class LinearIrInstruction {
     ///     stack based and linear ir. This may change later (TODO).
     /// </summary>
     public override String ToString() {
-        return Name + " " + String.Join(' ', OutputRegisters) 
+        return Name + " " + String.Join(" ", OutputRegisters) 
             + (OutputRegisters.Count > 0 && InputRegisters.Count > 0 ? " <- " : String.Empty)
-            + String.Join(' ', InputRegisters);
+            + String.Join(" ", InputRegisters);
     }
 }

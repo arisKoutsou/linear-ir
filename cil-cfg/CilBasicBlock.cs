@@ -30,7 +30,7 @@ public class CilBasicBlock {
     public override String ToString()
     {
         return String.Format("BasicBlock{0}\n{1}\nin: [{2}]\nout: [{3}]\n\n", 
-            Id, String.Join('\n', Instructions),
+            Id, String.Join("\n", Instructions),
             String.Join(", ", InBasicBlocks.Select(x => x.Id)),
             String.Join(", ", OutBasicBlocks.Select(x => x.Id)));
     }
