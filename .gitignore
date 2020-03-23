@@ -2,3 +2,7 @@
 obj/
 bin/
 .vscode/
+*.exe
+
+# Ignore Cecil folder (nuget generates this one)
+Mono.Cecil*
