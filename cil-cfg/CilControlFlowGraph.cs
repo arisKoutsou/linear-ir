@@ -68,8 +68,8 @@ public class CilControlFlowGraph
     /// </summary>
     private void FindBranchTargetInstructions() {
         branchTargetInstructionDictionary = instructions
-            .Where(x => x.IsControlTransferInstruction())
-            .SelectMany(x => x.GetControlTransferInstructionTargets())
+            .Where(x => x.IsControlFlowInstruction())
+            .SelectMany(x => x.GetControlFlowInstructionTargets())
             .ToDictionary(k => k, v => (CilBasicBlock)null);
     }
 
@@ -90,7 +90,7 @@ public class CilControlFlowGraph
             }
             if (instruction.Next == null
                 || branchTargetInstructionDictionary.ContainsKey(instruction.Next) // Next BB starts at branch target.
-                || instruction.IsControlTransferInstruction()) // BB ends at branch.
+                || instruction.IsControlFlowInstruction()) // BB ends at branch.
             {
                 // When we reach the end of the Basic block 
                 // we add it to the result list.
@@ -115,9 +115,9 @@ public class CilControlFlowGraph
         {
             var currentBasicBlock = BasicBlocks[i];
             var lastInstruction = currentBasicBlock.LastInstruction;
-            if (lastInstruction.IsControlTransferInstruction()) {
+            if (lastInstruction.IsControlFlowInstruction()) {
                 var targetInstructions = 
-                    lastInstruction.GetControlTransferInstructionTargets();
+                    lastInstruction.GetControlFlowInstructionTargets();
                 var targetBasicBlocks = targetInstructions
                     .Select(FindInstructionBasicBlock)
                     .ToList();

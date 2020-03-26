@@ -12,5 +12,8 @@ LinearIrTest: $(CLASSES)
 ControlFlowGraphTest: $(CLASSES)
 	mcs $(FLAGS) $(CLASSES) cil-cfg/ControlFlowGraphTest.cs -out:ControlFlowGraphTest.exe
 
+InstructionInfoDump: cil-cfg/InstructionInfoDumpTest.cs
+	mcs $(FLAGS) cil-cfg/InstructionInfoDumpTest.cs -out:InstructionInfoDump.exe
+
 cecil:
 	nuget install Mono.Cecil

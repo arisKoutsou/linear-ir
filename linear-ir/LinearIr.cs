@@ -170,7 +170,7 @@ public class LinearIr {
         foreach (var instruction in basicBlock.Instructions) {
             var linearIrInstruction = evaluate(instruction);
             sb.Append("\t" + linearIrInstruction);
-            if (instruction.IsControlTransferInstruction() 
+            if (instruction.IsControlFlowInstruction() 
                 && !instruction.IsReturnInstruction()) {
                 var targetBasicBlocks = basicBlock.OutBasicBlocks
                         .Where(x => x != basicBlock.NextBasicBlock)
