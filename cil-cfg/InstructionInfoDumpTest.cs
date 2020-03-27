@@ -19,7 +19,7 @@ class InstructionInfoDumpTest
         foreach (var p in typeof(OpCodes).GetFields())
         {
             var v = (OpCode)p.GetValue(null); // static classes cannot be instanced, so use null...
-            Console.WriteLine(String.Join(" ", 
+            Console.WriteLine(String.Join("\t", 
                 v.Name, v.FlowControl, v.StackBehaviourPop, v.StackBehaviourPush));
         }
     }
