@@ -15,12 +15,12 @@ class InstructionInfoDumpTest
     }
 
     private static void PrintControlFlow() {
-        Console.WriteLine("Instruction ControlFlow StakBehaviour");
+        Console.WriteLine("Instruction ControlFlow StakBehaviourPop StackBehaviourPush");
         foreach (var p in typeof(OpCodes).GetFields())
         {
             var v = (OpCode)p.GetValue(null); // static classes cannot be instanced, so use null...
-            Console.WriteLine(String.Join(" ", v.Name, v.FlowControl, 
-                String.Format("[{0},{1}]", v.StackBehaviourPop, v.StackBehaviourPush)));
+            Console.WriteLine(String.Join(" ", 
+                v.Name, v.FlowControl, v.StackBehaviourPop, v.StackBehaviourPush));
         }
     }
 }
