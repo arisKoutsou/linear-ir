@@ -1,4 +1,4 @@
-Instruction ControlFlow StakBehaviourPop    StackBehaviourPush
+Instruction	ControlFlow	StakBehaviourPop	StackBehaviourPush
 nop	Next	Pop0	Push0
 break	Break	Pop0	Push0
 ldarg.0	Next	Pop0	Push1
