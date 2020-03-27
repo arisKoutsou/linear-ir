@@ -67,8 +67,9 @@ public class LinearIr {
                 inputRegisters.Insert(0, evaluationStack.Pop());
                 break;
             case StackBehaviour.PopAll:
-                throw new NotImplementedException(); // TODO
-                // break;
+                // This cases is for the 'leave' instruction.
+                evaluationStack.Clear();
+                break;
             case StackBehaviour.Varpop:
                 if (i.OpCode == OpCodes.Call 
                     || i.OpCode == OpCodes.Calli
@@ -79,7 +80,6 @@ public class LinearIr {
                         inputRegisters.Insert(0, evaluationStack.Pop());
                     }
                 } else if (i.OpCode == OpCodes.Ret) {
-                    // TODO. Make sure it can't return more than 1. 
                     if (cilControlFlowGraph.Method.ReturnType.FullName != "System.Void") {
                         inputRegisters.Insert(0, evaluationStack.Pop());
                     }
@@ -128,7 +128,6 @@ public class LinearIr {
                 outputRegisters.Add(reg);
                 break;
             case StackBehaviour.Varpush:
-                // TODO
                 // Instruction that have this behaviour: callvirt calli call
                 // This is dealt simmilarly to the ret instruction of the current method.
                 Debug.Assert(i.OpCode == OpCodes.Call

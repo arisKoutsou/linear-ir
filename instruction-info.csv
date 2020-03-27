@@ -1,6 +1,3 @@
-Starting the testing sequence...
-Current directory is: /home/aris/Desktop/di/thesis
-
 Instruction ControlFlow StakBehaviour
 nop Next [Pop0,Push0]
 break Break [Pop0,Push0]

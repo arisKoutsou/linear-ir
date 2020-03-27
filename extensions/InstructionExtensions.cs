@@ -14,7 +14,7 @@ public static class InstructionExtensions {
     ///     True if instruction is branch, conditional 
     ///     branch or return, false otherwise 
     /// </returns>
-    public static bool IsControlFlowInstruction(this Instruction i) {        
+    public static bool IsControlFlowInstruction(this Instruction i) {
         switch (i.OpCode.FlowControl) {
             case FlowControl.Branch:
             case FlowControl.Cond_Branch:
