@@ -3,11 +3,11 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>ControlFlowInstructionTest</StartupObject>
+    <StartupObject>CilConverter</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mono.Cecil" />
+    <PackageReference Include="Mono.Cecil"/>
   </ItemGroup>
 
 </Project>
