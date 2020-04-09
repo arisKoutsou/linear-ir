@@ -27,7 +27,7 @@ ControlFlowGraphDump: $(CLASSES) $(ROOT_DIR)/ir-dump/ControlFlowGraphDump.cs
 InstructionInfoDump: $(ROOT_DIR)/extensions/InstructionInfoDumpTest.cs
 	$(CC) $(FLAGS) $(ROOT_DIR)/extensions/InstructionInfoDumpTest.cs -out:$(BUILD_DIR)/InstructionInfoDump.exe
 
-dependancies:
+dependencies:
 	nuget install Mono.Cecil
 	cp Mono.Cecil.0.11.2/lib/net40/Mono.Cecil.dll $(BUILD_DIR)
 

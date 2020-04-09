@@ -10,10 +10,10 @@ Repository for my bachelor thesis(University of Athens).
 * ``` $ sudo apt-get install nuget ```
 2. Change directory into 'make-build/'
 * ``` $ cd make-build/ ```
-3. Get the Cecil library using make
-* ``` $ make cecil ```
+3. Get required dependencies
+* ``` $ make dependancies ```
 4. Build targets
-* ``` $ make ```
+* ``` $ make <target>```
 
 # Build with .NET Core
 Get the Mono.Cecil nuget package and then invoke the dotnet cli in the root directory:
