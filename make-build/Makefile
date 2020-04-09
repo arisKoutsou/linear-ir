@@ -6,28 +6,32 @@ CLASSES = $(ROOT_DIR)/linear-ir/LinearIr.cs  \
 	$(ROOT_DIR)/extensions/InstructionExtensions.cs  \
 	$(ROOT_DIR)/cil-cfg/CilControlFlowGraph.cs  \
 	$(ROOT_DIR)/cil-cfg/CilBasicBlock.cs  \
+	$(ROOT_DIR)/ir-dump/IrPrintingPolicy.cs  \
+	$(ROOT_DIR)/linear-ir/CfgTraverseLinearIr.cs  \
+	$(ROOT_DIR)/linear-ir/SingleForwardPassLinearIr.cs  \
+	
 
 CC = @mcs
 
 FLAGS = -langversion:4 -r:$(BUILD_DIR)/Mono.Cecil.dll
 
-CilConverter: $(CLASSES) $(ROOT_DIR)/convert/CilConverter.cs
-	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/convert/CilConverter.cs -out:$(BUILD_DIR)/CilConverter.exe
+LinearIrDump: $(CLASSES) $(ROOT_DIR)/ir-dump/LinearIrDump.cs
+	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/ir-dump/LinearIrDump.cs -out:$(BUILD_DIR)/LinearIrDump.exe
 
 LinearIrTest: $(CLASSES) $(ROOT_DIR)/linear-ir/LinearIrTest.cs
 	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/linear-ir/LinearIrTest.cs -out:$(BUILD_DIR)/LinearIrTest.exe
 
-ControlFlowGraphTest: $(CLASSES) $(ROOT_DIR)/cil-cfg/ControlFlowGraphTest.cs
-	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/cil-cfg/ControlFlowGraphTest.cs -out:$(BUILD_DIR)/ControlFlowGraphTest.exe
+ControlFlowGraphDump: $(CLASSES) $(ROOT_DIR)/ir-dump/ControlFlowGraphDump.cs
+	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/ir-dump/ControlFlowGraphDump.cs -out:$(BUILD_DIR)/ControlFlowGraphDump.exe
 
 InstructionInfoDump: $(ROOT_DIR)/extensions/InstructionInfoDumpTest.cs
 	$(CC) $(FLAGS) $(ROOT_DIR)/extensions/InstructionInfoDumpTest.cs -out:$(BUILD_DIR)/InstructionInfoDump.exe
 
-cecil:
+dependancies:
 	nuget install Mono.Cecil
 	cp Mono.Cecil.0.11.2/lib/net40/Mono.Cecil.dll $(BUILD_DIR)
 
-all: cecil CilConverter LinearIrTest ControlFlowGraphTest InstructionInfoDump
+all: LinearIrDump LinearIrTest ControlFlowGraphDump InstructionInfoDump
 
 .PHONY: clean
 

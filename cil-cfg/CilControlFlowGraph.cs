@@ -9,7 +9,7 @@ using Mono.Cecil.Cil;
 /// </summary>
 public class CilControlFlowGraph
 {
-  private List<Instruction> instructions;
+  private IEnumerable<Instruction> instructions;
 
   /// <summary>
   ///     A map from any branch target instruction of the
@@ -36,7 +36,7 @@ public class CilControlFlowGraph
     return String.Join("\n", BasicBlocks);
   }
 
-  public MethodReference MethodDefinition { get; private set; }
+  public MethodDefinition MethodDefinition { get; private set; }
 
   /// <summary>
   ///     Constructs a Control Flow Graph for the specified module, type and method.    
@@ -52,13 +52,24 @@ public class CilControlFlowGraph
       .FirstOrDefault(x => x.Name == typeName);
     if (typeDefinition == null)
       throw new ArgumentException(String.Format("Could not find type '{0}'", typeName));
-    
-    MethodDefinition = typeDefinition.Methods
+
+    var methodDefinition = typeDefinition.Methods
       .First(x => x.Name == methodName);
-    if (MethodDefinition == null)
+    if (methodDefinition == null)
       throw new ArgumentException(String.Format("Could not find method '{0}'", methodName));
 
-    instructions = ((MethodDefinition)MethodDefinition).Body.Instructions.ToList();
+    MethodDefinition = methodDefinition;
+    instructions = MethodDefinition.Body
+      .Instructions;
+    BasicBlocks = new List<CilBasicBlock>();
+    GenerateControlFlowGraph();
+  }
+
+  public CilControlFlowGraph(MethodDefinition methodDefinition)
+  {
+    MethodDefinition = methodDefinition;
+    instructions = MethodDefinition.Body
+      .Instructions;
     BasicBlocks = new List<CilBasicBlock>();
     GenerateControlFlowGraph();
   }
@@ -80,6 +91,7 @@ public class CilControlFlowGraph
     branchTargetInstructionDictionary = instructions
       .Where(x => x.IsControlFlowInstruction())
       .SelectMany(x => x.GetControlFlowInstructionTargets())
+      .Distinct() // leave instructions have the same target.
       .ToDictionary(k => k, v => (CilBasicBlock)null);
   }
 

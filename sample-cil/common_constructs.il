@@ -3,7 +3,7 @@
   .ver 4:0:0:0
   .publickeytoken = (B7 7A 5C 56 19 34 E0 89 ) // .z\V.4..
 }
-.assembly 'SampleCil'
+.assembly 'common_constructs'
 {
   .custom instance void class [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::'.ctor'() =  (
 		01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
@@ -12,12 +12,12 @@
   .hash algorithm 0x00008004
   .ver  0:0:0:0
 }
-.module SampleCil.exe // GUID = {69FDCA18-153B-443E-BBAD-E84E4C51FA13}
+.module common_constructs.exe // GUID = {B86E3F82-9943-4ABF-952E-E4A64C75AF1A}
 
 
-.namespace SampleCil
+.namespace sample_cil
 {
-  .class private auto ansi beforefieldinit MainClass
+  .class private auto ansi beforefieldinit common_constructs
   	extends [mscorlib]System.Object
   {
 
@@ -31,7 +31,7 @@
 	IL_0000:  ldarg.0 
 	IL_0001:  call instance void object::'.ctor'()
 	IL_0006:  ret 
-    } // end of method MainClass::.ctor
+    } // end of method common_constructs::.ctor
 
     // method line 2
     .method public static hidebysig 
@@ -39,41 +39,30 @@
     {
         // Method begins at RVA 0x2058
 	.entrypoint
-	// Code size 7 (0x7)
-	.maxstack 1
-	.locals init (
-		class [mscorlib]System.Text.StringBuilder	V_0)
-	IL_0000:  newobj instance void class [mscorlib]System.Text.StringBuilder::'.ctor'()
-	IL_0005:  stloc.0 
-	IL_0006:  ret 
-    } // end of method MainClass::Main
+	// Code size 1 (0x1)
+	.maxstack 8
+	IL_0000:  ret 
+    } // end of method common_constructs::Main
 
     // method line 3
     .method public static hidebysig 
            default int64 Add (int32 x, int32 y)  cil managed 
     {
-        // Method begins at RVA 0x206b
-	// Code size 16 (0x10)
+        // Method begins at RVA 0x205a
+	// Code size 5 (0x5)
 	.maxstack 8
 	IL_0000:  ldarg.0 
-	IL_0001:  brtrue IL_000b
-
-	IL_0006:  ldarg.0 
-	IL_0007:  ldc.i4.1 
-	IL_0008:  add 
-	IL_0009:  starg.s 0
-	IL_000b:  ldarg.0 
-	IL_000c:  ldarg.1 
-	IL_000d:  add 
-	IL_000e:  conv.i8 
-	IL_000f:  ret 
-    } // end of method MainClass::Add
+	IL_0001:  ldarg.1 
+	IL_0002:  add 
+	IL_0003:  conv.i8 
+	IL_0004:  ret 
+    } // end of method common_constructs::Add
 
     // method line 4
     .method public static hidebysig 
            default bool IsOdd (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x207c
+        // Method begins at RVA 0x2060
 	// Code size 7 (0x7)
 	.maxstack 8
 	IL_0000:  ldarg.0 
@@ -82,42 +71,34 @@
 	IL_0003:  ldc.i4.1 
 	IL_0004:  ceq 
 	IL_0006:  ret 
-    } // end of method MainClass::IsOdd
+    } // end of method common_constructs::IsOdd
 
     // method line 5
     .method public static hidebysig 
            default int32 IfElse (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x2084
-	// Code size 29 (0x1d)
+        // Method begins at RVA 0x2068
+	// Code size 15 (0xf)
 	.maxstack 8
-	IL_0000:  ldc.i4.1 
-	IL_0001:  ldarg.0 
-	IL_0002:  div 
-	IL_0003:  starg.s 0
-	IL_0005:  ldarg.0 
-	IL_0006:  ldc.i4.0 
-	IL_0007:  ble IL_0016
+	IL_0000:  ldarg.0 
+	IL_0001:  ldc.i4.0 
+	IL_0002:  ble IL_000b
 
-	IL_000c:  ldarg.0 
-	IL_000d:  ldc.i4.1 
-	IL_000e:  add 
-	IL_000f:  starg.s 0
-	IL_0011:  br IL_001b
-
-	IL_0016:  ldarg.0 
-	IL_0017:  ldc.i4.1 
-	IL_0018:  sub 
-	IL_0019:  starg.s 0
-	IL_001b:  ldarg.0 
-	IL_001c:  ret 
-    } // end of method MainClass::IfElse
+	IL_0007:  ldarg.0 
+	IL_0008:  ldc.i4.1 
+	IL_0009:  add 
+	IL_000a:  ret 
+	IL_000b:  ldarg.0 
+	IL_000c:  ldc.i4.1 
+	IL_000d:  sub 
+	IL_000e:  ret 
+    } // end of method common_constructs::IfElse
 
     // method line 6
     .method public static hidebysig 
            default int32 Switch (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x20a2
+        // Method begins at RVA 0x2078
 	// Code size 33 (0x21)
 	.maxstack 8
 	IL_0000:  ldarg.0 
@@ -137,13 +118,13 @@
 	IL_001e:  ret 
 	IL_001f:  ldc.i4.4 
 	IL_0020:  ret 
-    } // end of method MainClass::Switch
+    } // end of method common_constructs::Switch
 
     // method line 7
     .method public static hidebysig 
            default int32 Throw (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x20c4
+        // Method begins at RVA 0x209a
 	// Code size 14 (0xe)
 	.maxstack 8
 	IL_0000:  ldarg.0 
@@ -153,13 +134,13 @@
 	IL_000b:  throw 
 	IL_000c:  ldarg.0 
 	IL_000d:  ret 
-    } // end of method MainClass::Throw
+    } // end of method common_constructs::Throw
 
     // method line 8
     .method public static hidebysig 
            default int32 Scope (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x20d4
+        // Method begins at RVA 0x20ac
 	// Code size 14 (0xe)
 	.maxstack 2
 	.locals init (
@@ -174,13 +155,13 @@
 	IL_000a:  starg.s 0
 	IL_000c:  ldarg.0 
 	IL_000d:  ret 
-    } // end of method MainClass::Scope
+    } // end of method common_constructs::Scope
 
     // method line 9
     .method public static hidebysig 
            default int32 Return (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x20ee
+        // Method begins at RVA 0x20c6
 	// Code size 19 (0x13)
 	.maxstack 8
 	IL_0000:  ldarg.0 
@@ -193,15 +174,15 @@
 	IL_000a:  ldarg.0 
 	IL_000b:  ldc.i4.1 
 	IL_000c:  sub 
-	IL_000d:  call int32 class SampleCil.MainClass::Return(int32)
+	IL_000d:  call int32 class sample_cil.common_constructs::Return(int32)
 	IL_0012:  ret 
-    } // end of method MainClass::Return
+    } // end of method common_constructs::Return
 
     // method line 10
     .method public static hidebysig 
            default int32 Partition (int32[] arr, int32 left, int32 right)  cil managed 
     {
-        // Method begins at RVA 0x2104
+        // Method begins at RVA 0x20dc
 	// Code size 75 (0x4b)
 	.maxstack 4
 	.locals init (
@@ -259,13 +240,13 @@
 	IL_0045:  ret 
 	IL_0046:  br IL_0004
 
-    } // end of method MainClass::Partition
+    } // end of method common_constructs::Partition
 
     // method line 11
     .method public static hidebysig 
            default int32 Ternary (int32 x)  cil managed 
     {
-        // Method begins at RVA 0x215b
+        // Method begins at RVA 0x2133
 	// Code size 22 (0x16)
 	.maxstack 8
 	IL_0000:  ldarg.0 
@@ -284,8 +265,37 @@
 	IL_0013:  ldc.i4.1 
 	IL_0014:  sub 
 	IL_0015:  ret 
-    } // end of method MainClass::Ternary
+    } // end of method common_constructs::Ternary
 
-  } // end of class SampleCil.MainClass
+    // method line 12
+    .method private hidebysig 
+           instance default int32 WhileLoop (int32 x)  cil managed 
+    {
+        // Method begins at RVA 0x214c
+	// Code size 25 (0x19)
+	.maxstack 3
+	.locals init (
+		int32	V_0)
+	IL_0000:  ldc.i4.0 
+	IL_0001:  stloc.0 
+	IL_0002:  br IL_000b
+
+	IL_0007:  ldloc.0 
+	IL_0008:  ldc.i4.1 
+	IL_0009:  add 
+	IL_000a:  stloc.0 
+	IL_000b:  ldarg.1 
+	IL_000c:  dup 
+	IL_000d:  ldc.i4.1 
+	IL_000e:  sub 
+	IL_000f:  starg.s 1
+	IL_0011:  ldc.i4.0 
+	IL_0012:  bgt IL_0007
+
+	IL_0017:  ldloc.0 
+	IL_0018:  ret 
+    } // end of method common_constructs::WhileLoop
+
+  } // end of class sample_cil.common_constructs
 }
 

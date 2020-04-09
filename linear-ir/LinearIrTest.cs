@@ -12,10 +12,11 @@ class LinearIrTest
     Console.WriteLine("Current directory is: " + Directory.GetCurrentDirectory());
     Console.WriteLine();
 
-    ModuleDefinition module = ModuleDefinition.ReadModule("sample-cil/SampleCil.exe");
-    CilControlFlowGraph cfg = new CilControlFlowGraph(module, "MainClass", "Ternary");
-    LinearIr linearIr = new LinearIr(cfg);
-    Console.WriteLine(linearIr.emit());
+    // ModuleDefinition module = ModuleDefinition
+    //   .ReadModule("../sample-cil/common_constructs.exe");
+    // CilControlFlowGraph cfg = new CilControlFlowGraph(module, "MainClass", "Ternary");
+    // LinearIr linearIr = new LinearIr(cfg);
+    // Console.WriteLine(linearIr.emit());
   }
 
   

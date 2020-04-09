@@ -1,19 +1,13 @@
 ﻿using System;
 using System.Text;
 
-namespace SampleCil
+namespace sample_cil
 {
-  class MainClass
+  class common_constructs
   {
-    public static void Main (string[] args)
-    {
-      // Console.WriteLine(Add(1024, 4096));
-      StringBuilder s = new StringBuilder();
-    }
+    public static void Main (string[] args) {}
 
     public static long Add(int x, int y) {
-      if (x == 0)
-        x++;
       return x + y;
     }
 
@@ -22,13 +16,11 @@ namespace SampleCil
     }
     
     public static int IfElse(int x) {
-      x = 1 / x;
       if (x > 0) {
-        x = x+1;
+        return x+1;
       } else {
-        x = x-1;
+        return x-1;
       }
-      return x;
     }
 
     public static int Switch(int x) {
@@ -39,20 +31,6 @@ namespace SampleCil
         default: return 4;
       }
     }
-
-    // public static int TryCatch(int x) {
-    //   int a = 2;
-    //   try { // 0
-    //     a = 1/x;
-    //   } catch (System.OutOfMemoryException) {
-    //     Console.WriteLine("Caught Memory ex");
-    //   } catch (Exception e) { // 1
-    //     Console.WriteLine("Caught exception");
-    //   } finally { // 2
-    //     a = 3;
-    //   }
-    //   return a; //  3
-    // }
     
     public static int Throw(int x) {
       if (x == 0) {
@@ -98,8 +76,13 @@ namespace SampleCil
     public static int Ternary(int x) {
       return x == 0 ? (x*x+1)/2 : x-1;
     }
-    // public static (int, int, int) CSharp7Tuples(int x) {
-    // 	return (x, x, x);
-    // }
+
+    int WhileLoop(int x) {
+      int y = 0;
+      while (x-- > 0) {
+        y++;
+      }
+      return y;
+    }
   }
 }
