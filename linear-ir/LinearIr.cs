@@ -179,11 +179,33 @@ public abstract class LinearIr {
       stackBasedInstruction, outputRegisters, inputRegisters);
   }
 
-
   public override String ToString()
   {
     return String.Format("{0}\n{{\n{1}\n}}", 
       MethodDefinition.FullName, String.Join("\n", Instructions));
   }
 
+  /// <summary>
+  ///  Dumps the linear ir representation of a method to stdout.
+  /// </summary>
+  public void Dump(IrPrintingPolicy printingPolicy)
+  {
+    var @out = Console.Out;
+    @out.WriteLine(printingPolicy.IndentationString + MethodDefinition.FullName);
+    @out.WriteLine(printingPolicy.IndentationString + "{");
+    printingPolicy.IncrementIndentation();
+    foreach (var instruction in this.Instructions)
+    {
+      instruction.Dump(printingPolicy);
+      @out.WriteLine();
+    }
+    printingPolicy.DecrementIndentation();
+    @out.WriteLine(printingPolicy.IndentationString + "}");
+  }
+
+  public enum Algorithm
+  {
+    CfgTraversal,
+    SingleForwardPass,
+  }
 }

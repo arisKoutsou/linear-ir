@@ -1,14 +1,20 @@
+using System;
+
 public class IrPrintingPolicy
 {
-  public readonly int TabWidth;
-  public IrPrintingPolicy(int tabWidth)
-  {
-    TabWidth = tabWidth;
+  public int TabWidth = 2;
+  public bool ColorEnabled = false;
+  public int IndentationLevel = 0;
+
+  public String IndentationString { get; private set; } = String.Empty;
+
+  public void IncrementIndentation() {
+    IndentationLevel++;
+    IndentationString = new String(' ', TabWidth*IndentationLevel);
   }
 
-  public IrPrintingPolicy()
-    :this(2)
-  {
-    
-  }
+  public void DecrementIndentation() {
+    IndentationLevel--;
+    IndentationString = new String(' ', TabWidth*IndentationLevel);
+  } 
 }

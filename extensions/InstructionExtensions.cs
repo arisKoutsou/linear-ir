@@ -59,6 +59,19 @@ public static class InstructionExtensions
       && i.OpCode.FlowControl != FlowControl.Return
       && i.OpCode.FlowControl != FlowControl.Throw;
   }
+
+  /// <summary>
+  ///   Get's the label of a stack based instruction in the method body.
+  ///   This label is ultimately the address of the instruction
+  ///   in hexadecimal, counting from 0 from the first instruction of the
+  ///   method body.
+  /// </summary>
+  /// <param name="i"> The cil instruction </param>
+  /// <returns> String representation of the instruction label </returns>
+  public static String GetLabel(this Instruction i)
+  {
+    return String.Format("IL_{0}:", i.Offset.ToString("X4"));
+  }
 }
 
 

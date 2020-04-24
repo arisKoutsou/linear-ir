@@ -10,6 +10,10 @@ public class LinearIrInstruction {
 
   public String Name { get { return CorrespondingStackBasedInstruction.OpCode.Name; } }
 
+  /// <summary>
+  ///   Instruction address label. The format is simmilar to the output of
+  ///   monodis (.il files)
+  /// </summary>
   public String Label { get { return String
     .Format("IL_{0}", CorrespondingStackBasedInstruction.Offset.ToString("X4")); } }
   
@@ -31,11 +35,6 @@ public class LinearIrInstruction {
   public String OutputRegisterString { get { return String
     .Join(" ", OutputRegisters.Select(x => "v"+x)); } }
 
-  private String GetLabel(Instruction i)
-  {
-    return String.Format("IL_{0}:", i.Offset.ToString("X4"));
-  }
-
   /// <summary>
   ///     The string representation remains the same across
   ///     stack based and linear ir. This may change later (TODO).
@@ -53,12 +52,52 @@ public class LinearIrInstruction {
         return instructionString;
       else if (targetInstructions.Count() == 1)
         return instructionString + " | target: " 
-          + GetLabel(targetInstructions.Single());
+          + targetInstructions.Single().GetLabel();
       else
         return instructionString + " | targets: " +
-          String.Join(" ", targetInstructions.Select(GetLabel));
+          String.Join(" ", targetInstructions.Select(x => x.GetLabel()));
     } else {
       return instructionString;
+    }
+  }
+
+  public void Dump(IrPrintingPolicy printingPolicy)
+  {
+    if (!printingPolicy.ColorEnabled) {
+      Console.Out.Write(printingPolicy.IndentationString + this);
+      return;
+    }
+
+    Console.Out.Write(printingPolicy.IndentationString);
+    Console.ForegroundColor = ConsoleColor.DarkGray;
+    Console.Out.Write(Label + ": ");
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Magenta;
+    Console.Out.Write(this.Name);
+    Console.ResetColor();
+
+    Console.ForegroundColor = ConsoleColor.Blue;
+    Console.Out.Write(" " + OutputRegisterString);
+    Console.ResetColor();
+
+    if (OutputRegisters.Count() > 0 && InputRegisters.Count() > 0)
+      Console.Out.Write(" <- ");
+
+    Console.ForegroundColor = ConsoleColor.Blue;
+    Console.Out.Write(InputRegisterString);
+    Console.ResetColor();
+
+    if (CorrespondingStackBasedInstruction.IsControlFlowInstruction())
+    {
+      var targetInstructions = CorrespondingStackBasedInstruction
+        .GetControlFlowInstructionTargets();
+      if (targetInstructions.Any()) {
+        Console.Write(" | target(s): " );
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.Out.Write(String.Join(" ", targetInstructions.Select(x => x.GetLabel())));
+        Console.ResetColor();
+      }
     }
   }
 }

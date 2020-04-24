@@ -2,15 +2,16 @@ using System;
 using Mono.Cecil;
 using System.IO;
 using System.Linq;
-using System.Text;
+using Mono.Options;
 using System.Collections.Generic;
 
 public class LinearIrDump
 {
-
   private ModuleDefinition moduleDefinition;
 
-  public readonly IrPrintingPolicy IrPrintingPolicy;
+  public IrPrintingPolicy IrPrintingPolicy { get; set; }
+
+  public LinearIr.Algorithm Algorithm { get; set; }
 
   private int indentationLevel = 0;
 
@@ -26,10 +27,14 @@ public class LinearIrDump
     IrPrintingPolicy = policy;
   }
 
-  public IEnumerable<LinearIrInstruction> GetLinearIrInstructions(MethodDefinition methodDefinition)
+  public LinearIr GetLinearIr(MethodDefinition methodDefinition)
   {
-    LinearIr linearIr = new SingleForwardPassLinearIr(methodDefinition);
-    return linearIr.Instructions;
+    LinearIr linearIr;
+    if (Algorithm == LinearIr.Algorithm.CfgTraversal)
+      linearIr = new CfgTraverseLinearIr(methodDefinition);
+    else
+      linearIr = new SingleForwardPassLinearIr(methodDefinition);
+    return linearIr;
   }
 
   public TypeDefinition GetTypeDefinition(String typeName)
@@ -57,48 +62,38 @@ public class LinearIrDump
     return methodDefinition;
   }
 
-  public void Dump(TextWriter textWriter, String typeName)
-  {
-    var typeDefinition = GetTypeDefinition(typeName);
-    textWriter.WriteLine(typeDefinition.FullName);
-    textWriter.WriteLine("{");
-    indentationLevel++;
-    foreach (var methodDefinition in typeDefinition.Methods)
-    {
-      Dump(textWriter, methodDefinition);
-      textWriter.WriteLine();
-    }
-    indentationLevel--;
-    textWriter.WriteLine("}");
-  }
-
-  public void Dump(TextWriter textWriter, MethodDefinition methodDefinition)
-  {
-    textWriter.WriteLine(GetIndentation() + methodDefinition.FullName);
-    textWriter.WriteLine(GetIndentation() + "{");
-    indentationLevel++;
-    foreach (var instruction in GetLinearIrInstructions(methodDefinition))
-    {
-      textWriter.WriteLine(GetIndentation() + instruction);
-    }
-    indentationLevel--;
-    textWriter.WriteLine(GetIndentation() + "}");
-  }
-
-  public void Dump(TextWriter textWriter, String typeName, String methodName)
-  {
-    var methodDefinition = GetMethodDefinition(typeName, methodName);
-    Dump(textWriter, methodDefinition);
-  }
-
   public void Dump(String typeName)
   {
-    Dump(Console.Out, typeName);
+    var @out = Console.Out;
+    var typeDefinition = GetTypeDefinition(typeName);
+    @out.WriteLine(typeDefinition.FullName);
+    @out.WriteLine("{");
+    IrPrintingPolicy.IncrementIndentation();
+    foreach (var methodDefinition in typeDefinition.Methods)
+    {
+      Dump(methodDefinition);
+      @out.WriteLine();
+    }
+    IrPrintingPolicy.DecrementIndentation();
+    @out.WriteLine("}");
+  }
+
+  public void Dump(MethodDefinition methodDefinition)
+  {
+    GetLinearIr(methodDefinition).Dump(IrPrintingPolicy);
   }
 
   public void Dump(String typeName, String methodName)
   {
-    Dump(Console.Out, typeName, methodName);
+    var methodDefinition = GetMethodDefinition(typeName, methodName);
+    Dump(methodDefinition);
+  }
+
+  public void DumpCfg(String typeName, String methodName)
+  {
+    var methodDefinition = GetMethodDefinition(typeName, methodName);
+    CilControlFlowGraph cfg = new CilControlFlowGraph(methodDefinition);
+    Console.Out.WriteLine(cfg);
   }
 
   private String GetIndentation()
@@ -106,24 +101,5 @@ public class LinearIrDump
     return new String(' ', indentationLevel*IrPrintingPolicy.TabWidth);
   }
 
-  public static void Main(String[] args)
-  {
-    // TODO. Find a better way to parse command line args.
-    if (args.Length < 2)
-    {
-      Console.WriteLine(@"Usage: 
-        CilConverter.exe [MODULE_FILENAME] [TYPE_NAME] [METHOD_NAME]?");
-      return;
-    }
-
-    LinearIrDump converter = new LinearIrDump(args[0]);
-    if (args.Length == 2)
-    {
-      converter.Dump(typeName: args[1]);
-    }
-    else if (args.Length > 2)
-    {
-      converter.Dump(typeName: args[1], methodName: args[2]);
-    }
-  }
+  
 }

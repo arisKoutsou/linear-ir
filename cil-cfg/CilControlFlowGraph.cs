@@ -74,6 +74,12 @@ public class CilControlFlowGraph
     GenerateControlFlowGraph();
   }
 
+  public CilControlFlowGraph(String module, String type, String method)
+    : this(ModuleDefinition.ReadModule(module), type, method)
+  {
+
+  }
+
   private void GenerateControlFlowGraph()
   {
     FindBranchTargetInstructions();

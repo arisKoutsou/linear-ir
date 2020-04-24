@@ -1,10 +1,6 @@
-using System;
 using System.Collections.Generic;
-using Mono.Cecil.Cil;
 using System.Linq;
 using Mono.Cecil;
-using System.Diagnostics;
-using System.Text;
 
 public class CfgTraverseLinearIr : LinearIr
 {
@@ -32,7 +28,7 @@ public class CfgTraverseLinearIr : LinearIr
     {
       if (visited.ContainsKey(basicBlock))
         continue;
-      RecursiveDFS(cfg.EntryBasicBlock, visited);
+      RecursiveDFS(basicBlock, visited);
     }
 
     Instructions = cfg.BasicBlocks.SelectMany(x => visited[x]);
