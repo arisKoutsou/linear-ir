@@ -1,4 +1,4 @@
-# bachelor-thesis
+# linear-ir
 Conversion of CLI stack-based intermediate language toa register-based representation.
 
 # Build with make and Mono
