@@ -1,4 +1,5 @@
 # Ignore these
+doc/
 obj/
 bin/
 .vscode/

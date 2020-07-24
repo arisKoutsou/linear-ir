@@ -15,6 +15,8 @@ You will need Mono 4.4.2 or later and NuGet Package Manager
 ## Build and Run NUnit Tests
 * ``` $ make test-dependencies ```
 * ``` $ make test-run ```
+## Generate Documentation with Doxygen
+* ``` $ make doc ```
 
 # Build with .NET Core
 Invoke the dotnet cli in the root directory:
