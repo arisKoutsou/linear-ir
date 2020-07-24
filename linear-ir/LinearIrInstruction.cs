@@ -40,10 +40,9 @@ public class LinearIrInstruction {
   ///     stack based and linear ir. This may change later (TODO).
   /// </summary>
   public override String ToString() {
-    var instructionString = Label + ": " + Name + " " + OutputRegisterString
-      + (OutputRegisters.Count() > 0 && InputRegisters.Count() > 0 
-        ? " <- " : String.Empty)
-      + InputRegisterString;
+    var instructionString = Label + ": " + OutputRegisterString
+      + (OutputRegisters.Count() > 0 
+        ? " <- " : String.Empty) + Name + " " + InputRegisterString;
     if (CorrespondingStackBasedInstruction.IsControlFlowInstruction())
     {
       var targetInstructions = CorrespondingStackBasedInstruction
@@ -73,16 +72,16 @@ public class LinearIrInstruction {
     Console.Out.Write(Label + ": ");
     Console.ResetColor();
 
-    Console.ForegroundColor = ConsoleColor.Magenta;
-    Console.Out.Write(this.Name);
-    Console.ResetColor();
-
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.Out.Write(" " + OutputRegisterString);
     Console.ResetColor();
 
-    if (OutputRegisters.Count() > 0 && InputRegisters.Count() > 0)
+    if (OutputRegisters.Count() > 0)
       Console.Out.Write(" <- ");
+
+    Console.ForegroundColor = ConsoleColor.Magenta;
+    Console.Out.Write(this.Name);
+    Console.ResetColor();
 
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.Out.Write(InputRegisterString);

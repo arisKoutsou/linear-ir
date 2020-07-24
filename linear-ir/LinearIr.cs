@@ -1,9 +1,8 @@
-
 using System;
 using Mono.Cecil;
-using System.Linq;
 using Mono.Cecil.Cil;
 using System.Collections.Generic;
+using System.Linq;
 
 public abstract class LinearIr {
 
@@ -42,7 +41,7 @@ public abstract class LinearIr {
     switch (instruction.OpCode.StackBehaviourPop)
     {
       case StackBehaviour.Pop0:
-        // Do nothing.
+        inputRegisters = new int[0];
         break;
       case StackBehaviour.Pop1:
       case StackBehaviour.Popi:
@@ -62,7 +61,6 @@ public abstract class LinearIr {
         inputRegisters[1] = --evaluationStackSize;
         inputRegisters[0] = --evaluationStackSize;
         break;
-
       case StackBehaviour.Popi_popi_popi:
       case StackBehaviour.Popref_popi_popi:
       case StackBehaviour.Popref_popi_popi8:
@@ -76,6 +74,7 @@ public abstract class LinearIr {
         break;
       case StackBehaviour.PopAll:
         // This cases is for the 'leave' instruction.
+        inputRegisters = new int[0];
         evaluationStackSize = 0;
         break;
       case StackBehaviour.Varpop:
@@ -85,8 +84,15 @@ public abstract class LinearIr {
           || instruction.OpCode == OpCodes.Newobj)
         {
           var methodToCall = instruction.Operand as MethodReference;
-          inputRegisters = new int[methodToCall.Parameters.Count];
-          for (int i = methodToCall.Parameters.Count-1; i >= 0; i--)
+          var parameterCount = methodToCall.Parameters.Count;
+          // If the method is an instance method then 'this'
+          // argument is present too, so increment parameters.
+          if (methodToCall.HasThis && instruction.OpCode != OpCodes.Newobj)
+          {
+            parameterCount++;
+          }
+          inputRegisters = new int[parameterCount];
+          for (int i = parameterCount-1; i >= 0; i--)
           {
             inputRegisters[i] = --evaluationStackSize;
           }
@@ -109,7 +115,7 @@ public abstract class LinearIr {
       default:
         throw new InvalidOperationException("Invalid Stack Behaviour");
     }
-    return inputRegisters != null ? inputRegisters : new int[0];
+    return inputRegisters;
   }
 
   /// <summary>
@@ -126,7 +132,7 @@ public abstract class LinearIr {
     switch (i.OpCode.StackBehaviourPush)
     {
       case StackBehaviour.Push0:
-        // Do nothing.
+        outputRegisters = new int[0];
         break;
       case StackBehaviour.Push1:
       case StackBehaviour.Pushi:
@@ -161,7 +167,7 @@ public abstract class LinearIr {
     if (evaluationStackSize > MaxRegisterCount)
       MaxRegisterCount = evaluationStackSize;
     // return the result we obtained by the case analysis.
-    return outputRegisters != null ? outputRegisters : new int[0];
+    return outputRegisters;
   }
 
   /// <summary>
@@ -173,8 +179,21 @@ public abstract class LinearIr {
   /// <returns> A linear ir instruction </returns>
   protected LinearIrInstruction GetLinearIrInstructionFrom(Instruction stackBasedInstruction)
   {
+    // Handle the case where the VES pushes an exception object
+    // onto the stack. This can't be described as stack behaviour.
+    if (MethodDefinition.Body.ExceptionHandlers
+      .Any(x => x.FilterStart == stackBasedInstruction || 
+                x.HandlerStart == stackBasedInstruction))
+        evaluationStackSize++;
+
     var inputRegisters = GetInstructionInputRegisters(stackBasedInstruction);
     var outputRegisters = GetInstructionOutputRegisters(stackBasedInstruction);
+
+    // if (stackBasedInstruction.OpCode == OpCodes.Throw ||
+    //     stackBasedInstruction.OpCode == OpCodes.Rethrow ||
+    //     stackBasedInstruction.OpCode == OpCodes.Endfinally)
+    //     evaluationStackSize = 0;
+
     return new LinearIrInstruction(
       stackBasedInstruction, outputRegisters, inputRegisters);
   }

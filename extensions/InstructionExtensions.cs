@@ -2,6 +2,9 @@ using System;
 using Mono.Cecil.Cil;
 using System.Collections.Generic;
 
+/// <summary>
+///   Static Extension class for Cecil Instruction Objects.
+/// </summary>
 public static class InstructionExtensions
 {
 
@@ -51,7 +54,7 @@ public static class InstructionExtensions
   ///   Get's whether a control flow instruction has a fallthrough block.
   ///   Instructions that don't have fallthrough blocks include: ret, throw and rethrow.
   /// </summary>
-  /// <param name="i"> The instruction to check </param>
+  /// <param name="i"> The instruction to check against </param>
   /// <returns> A boolean value indicating the result </returns>
   public static bool HasFallthroughInstruction(this Instruction i)
   {
@@ -70,7 +73,7 @@ public static class InstructionExtensions
   /// <returns> String representation of the instruction label </returns>
   public static String GetLabel(this Instruction i)
   {
-    return String.Format("IL_{0}:", i.Offset.ToString("X4"));
+    return String.Format("IL_{0}", i.Offset.ToString("X4"));
   }
 }
 

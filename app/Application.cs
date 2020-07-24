@@ -4,6 +4,10 @@ using System.IO;
 using System.Linq;
 using Mono.Options;
 
+/// <summary>
+///   Entry point for the console appliction. This class implements
+///   the command line options and uses LinearIrDump to perfrom the conversion.
+/// </summary>
 public static class Application
 {
   static bool showHelp = false;
@@ -12,7 +16,7 @@ public static class Application
   static String typeName = null;
   static String methodName = null;
   static String dumpFile = null;
-  static String algorithm = "cfgtraverse";
+  static LinearIr.Algorithm algorithm = LinearIr.Algorithm.SingleForwardPass;
   static IrPrintingPolicy printingPolicy = new IrPrintingPolicy();
 
   static OptionSet optionSet = new OptionSet()
@@ -24,7 +28,8 @@ public static class Application
       { "o|output=",  "Dump the output to the specified file, if none then dump to stdout", 
         v => dumpFile = v },
       { "a|algorithm=",  "Select the conversion algorithm: one of 'cfgtraverse'(default) or 'forwardpass'", 
-        v => algorithm = v },
+        v => algorithm = v == "forwardpass" ? 
+         LinearIr.Algorithm.SingleForwardPass : LinearIr.Algorithm.CfgTraversal },
       { "dump-cfg", "Dump the cfg for the specified method and exit",
         v => dumpCfg = true },
       { "color", "Enable colored output for more readable code",
@@ -35,6 +40,10 @@ public static class Application
         v => showHelp = true },
     };
 
+  /// <summary>
+  ///   Displays the help text.
+  /// </summary>
+  /// <param name="optionSet"> Option set to display help for. </param>
   static void ShowHelp(OptionSet optionSet)
   {
     Console.WriteLine("Usage: LinearIrDump [OPTIONS]... MODULE_FILE");
@@ -44,6 +53,9 @@ public static class Application
     optionSet.WriteOptionDescriptions(Console.Out);
   }
   
+  /// <summary>
+  ///   Entry point.
+  /// </summary>
   public static void Main(String[] args)
   {
     List<String> extra;
@@ -70,24 +82,9 @@ public static class Application
     } else {
       moduleFilename = extra.First();
     }
-    
-    if (typeName == null)
-    {
-      Console.WriteLine("No type specified... Exiting");
-      return;
-    }
 
     LinearIrDump linearIrDump = new LinearIrDump(moduleFilename, printingPolicy);
-
-    if (algorithm == "cfgtraverse")
-      linearIrDump.Algorithm = LinearIr.Algorithm.CfgTraversal;
-    else if (algorithm == "forwardpass")
-      linearIrDump.Algorithm = LinearIr.Algorithm.SingleForwardPass;
-    else
-    {
-      Console.WriteLine("Invalid conversion algorithm... Exiting");
-      return;
-    }
+    linearIrDump.Algorithm = algorithm;
 
     using (TextWriter writer = dumpFile == null ?
        Console.Out : new StreamWriter(dumpFile))
@@ -103,10 +100,21 @@ public static class Application
         linearIrDump.DumpCfg(typeName, methodName);
         return;
       }
-      if (methodName == null)
+
+      if (typeName == null && methodName == null)
+      {
+        linearIrDump.Dump();
+      } else if (typeName == null && methodName != null)
+      {
+        Console.WriteLine("No type specified... Exiting.");
+        return;
+      } else if (typeName != null && methodName == null)
+      {
         linearIrDump.Dump(typeName);
-      else
+      } else
+      {
         linearIrDump.Dump(typeName, methodName);
+      }
     }
   }
 }

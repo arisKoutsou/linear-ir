@@ -1,5 +1,5 @@
 # bachelor-thesis
-Repository for my bachelor thesis(University of Athens).
+Conversion of CLI stack-based intermediate language toa register-based representation.
 
 # Build with make and Mono
 You will need Mono 4.4.2 or later and NuGet Package Manager
@@ -12,6 +12,9 @@ You will need Mono 4.4.2 or later and NuGet Package Manager
 * ``` $ make dependancies ```
 4. Build targets
 * ``` $ make <target>```
+## Build and Run NUnit Tests
+* ``` $ make test-dependencies ```
+* ``` $ make test-run ```
 
 # Build with .NET Core
 Invoke the dotnet cli in the root directory:

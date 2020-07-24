@@ -84,5 +84,35 @@ namespace sample_cil
       }
       return y;
     }
+    
+    int SquareDiff(int a, int b) {
+		  return (a+b)*(a-b);
+    }
+    
+    System.Guid ValueType() {
+        System.Guid guid = Guid.NewGuid();
+        return guid;
+    }
+
+    int Factorial(int n) {
+      if (n == 0)
+        return 1;
+      return n * Factorial(n-1);
+    }
+
+    int Sum(int[] arr)
+    {
+      int s = 0;
+      for (int i = 0; i < arr.Length; i++)
+      {
+        s+=arr[i];
+      }
+      return s;
+    }
+
+    int Instance(int x)
+    {
+      return Factorial(2);
+    }
   }
 }
