@@ -1,3 +1,4 @@
+![logo](/stack-logo.png?raw=true)
 # linear-ir
 Conversion of CLI stack-based intermediate language toa register-based representation.
 
