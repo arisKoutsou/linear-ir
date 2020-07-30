@@ -19,8 +19,11 @@ RUNTIME = @mono
 
 FLAGS = -langversion:6 -r:$(BUILD_DIR)/Mono.Cecil.dll -r:$(BUILD_DIR)/Mono.Options.dll
 
-LinearIr: $(CLASSES) $(ROOT_DIR)/app/Application.cs
+linear-ir: $(CLASSES) $(ROOT_DIR)/app/Application.cs
 	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/app/Application.cs -out:$(BUILD_DIR)/LinearIr.exe
+
+lib: $(CLASSES)
+	$(CC) $(FLAGS) $(CLASSES) -target:library -out:$(BUILD_DIR)/LinearIr.dll
 
 ControlFlowGraphDump: $(CLASSES) $(ROOT_DIR)/ir-dump/ControlFlowGraphDump.cs
 	$(CC) $(FLAGS) $(CLASSES) $(ROOT_DIR)/ir-dump/ControlFlowGraphDump.cs -out:$(BUILD_DIR)/ControlFlowGraphDump.exe

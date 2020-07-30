@@ -189,11 +189,6 @@ public abstract class LinearIr {
     var inputRegisters = GetInstructionInputRegisters(stackBasedInstruction);
     var outputRegisters = GetInstructionOutputRegisters(stackBasedInstruction);
 
-    // if (stackBasedInstruction.OpCode == OpCodes.Throw ||
-    //     stackBasedInstruction.OpCode == OpCodes.Rethrow ||
-    //     stackBasedInstruction.OpCode == OpCodes.Endfinally)
-    //     evaluationStackSize = 0;
-
     return new LinearIrInstruction(
       stackBasedInstruction, outputRegisters, inputRegisters);
   }

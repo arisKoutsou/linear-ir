@@ -82,4 +82,15 @@ public class LinearIrTest
                     x.OutputRegisters.All(i => i >= 0))
         );
     }
+
+    [Test]
+    public void Correspondence1To1_Should_ExistBetweenInstructions_InCfgTravers()
+    {
+        cecilLibraryCfgLinearIrMethods
+            .ForEach(x =>
+                Assert.True(x.Instructions
+                    .Select(i => i.CorrespondingStackBasedInstruction)
+                    .SequenceEqual(x.MethodDefinition.Body.Instructions))
+            );
+    }
 }

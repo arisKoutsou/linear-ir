@@ -2,6 +2,8 @@
 doc/
 obj/
 bin/
+make-build/
+!make-build/Makefile
 .vscode/
 *.exe
 *.dll

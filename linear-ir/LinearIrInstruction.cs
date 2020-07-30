@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,8 @@ public class LinearIrInstruction {
 
   public Instruction CorrespondingStackBasedInstruction { get; }
 
-  public String Name { get { return CorrespondingStackBasedInstruction.OpCode.Name; } }
+  public String OpCodeAndOperandString { get { 
+    return CorrespondingStackBasedInstruction.ToString().Remove(0, 9); } }
 
   /// <summary>
   ///   Instruction address label. The format is simmilar to the output of
@@ -37,27 +37,13 @@ public class LinearIrInstruction {
 
   /// <summary>
   ///     The string representation remains the same across
-  ///     stack based and linear ir. This may change later (TODO).
+  ///     stack based and linear ir.
   /// </summary>
   public override String ToString() {
     var instructionString = Label + ": " + OutputRegisterString
       + (OutputRegisters.Count() > 0 
-        ? " <- " : String.Empty) + Name + " " + InputRegisterString;
-    if (CorrespondingStackBasedInstruction.IsControlFlowInstruction())
-    {
-      var targetInstructions = CorrespondingStackBasedInstruction
-        .GetControlFlowInstructionTargets();
-      if (targetInstructions.Count() == 0)
-        return instructionString;
-      else if (targetInstructions.Count() == 1)
-        return instructionString + " | target: " 
-          + targetInstructions.Single().GetLabel();
-      else
-        return instructionString + " | targets: " +
-          String.Join(" ", targetInstructions.Select(x => x.GetLabel()));
-    } else {
-      return instructionString;
-    }
+        ? " <- " : String.Empty) + OpCodeAndOperandString + " " + InputRegisterString;
+    return instructionString;
   }
 
   public void Dump(IrPrintingPolicy printingPolicy)
@@ -80,23 +66,11 @@ public class LinearIrInstruction {
       Console.Out.Write(" <- ");
 
     Console.ForegroundColor = ConsoleColor.Magenta;
-    Console.Out.Write(this.Name);
+    Console.Out.Write(this.OpCodeAndOperandString);
     Console.ResetColor();
 
     Console.ForegroundColor = ConsoleColor.Blue;
     Console.Out.Write(InputRegisterString);
     Console.ResetColor();
-
-    if (CorrespondingStackBasedInstruction.IsControlFlowInstruction())
-    {
-      var targetInstructions = CorrespondingStackBasedInstruction
-        .GetControlFlowInstructionTargets();
-      if (targetInstructions.Any()) {
-        Console.Write(" | target(s): " );
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        Console.Out.Write(String.Join(" ", targetInstructions.Select(x => x.GetLabel())));
-        Console.ResetColor();
-      }
-    }
   }
 }
