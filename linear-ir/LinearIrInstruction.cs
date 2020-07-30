@@ -66,7 +66,7 @@ public class LinearIrInstruction {
       Console.Out.Write(" <- ");
 
     Console.ForegroundColor = ConsoleColor.Magenta;
-    Console.Out.Write(this.OpCodeAndOperandString);
+    Console.Out.Write(this.OpCodeAndOperandString + " ");
     Console.ResetColor();
 
     Console.ForegroundColor = ConsoleColor.Blue;
