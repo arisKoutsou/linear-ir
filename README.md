@@ -2,6 +2,18 @@
 # linear-ir
 Conversion of CLI stack-based intermediate language to a register-based representation.
 
+We briefly present the Virtual Execution System (VES) of the Common Language Infra
+structure (CLI) and the properties of the stack based Common Intermediate Language
+(CIL). Then we inspect managed assemblies by browsing through types, type members
+and CIL method instructions. A Control Flow Graph (CFG) is generated for method instruc
+tions. This CFG method representation is used as a first approach to convert the stack-
+based intermediate representation to a register-based (linear) representation. A second
+approach to this conversion is examined which uses important properties of managed CIL
+code. Finally, we compare our results and highlight future applications of register-based
+IL in code analysis.
+
+A more detailed presentation of the project can be found in the file ``` thesis.pdf ```.
+
 # Build with make and Mono
 You will need Mono 4.4.2 or later and NuGet Package Manager
 1. Install NuGet Package Manager and update
