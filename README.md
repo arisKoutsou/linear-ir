@@ -13,8 +13,11 @@ You will need Mono 4.4.2 or later and NuGet Package Manager
 * ``` $ make dependancies ```
 4. Build targets
 * ``` $ make <target>```
+
 For a command line executable build: ``` $ make linear-ir```
+
 For a library containing the linear-ir API build: ``` $ make lib ```
+
 ## Build and Run NUnit Tests
 * ``` $ make test-dependencies ```
 * ``` $ make test-run ```
