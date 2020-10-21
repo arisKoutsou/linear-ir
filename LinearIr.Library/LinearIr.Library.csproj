@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>LinearIr</PackageId>
+    <Version>1.0.1</Version>
+    <Authors>Aristotelis Koutsouridis</Authors>
+    <Company>University of Athens</Company>
+    <PackageTags>Mono;CLI;NetCore;Program Analysis;Intermediate Representation</PackageTags>
+    <Description>
+      Conversion of CLI stack-based intermediate language to a register-based representation. Control flow graph generator for CLI methods.
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.11.2" />
+  </ItemGroup>
+
+</Project>

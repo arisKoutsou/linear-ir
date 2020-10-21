@@ -1,0 +1,17 @@
+# Ignore these
+doc/
+!doc/README.md
+make-build/
+!make-build/Makefile
+.vscode/
+*.exe
+*.dll
+*.lir
+*.il
+.vscode
+LinearIr.Application/obj
+LinearIr.Application/bin
+LinearIr.Test/obj
+LinearIr.Test/bin
+LinearIr.Library/obj
+LinearIr.Library/bin

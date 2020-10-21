@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="c1551871-ab8d-46a7-a8a0-84803022093e" name="@aris-PORTEGE-Z930 2020-10-20 00:32:09" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2020-10-20T00:32:09.5049856+03:00" queuing="2020-10-20T00:32:09.5049858+03:00" start="2020-10-20T00:32:08.0678701+03:00" finish="2020-10-20T00:32:09.5392074+03:00" />
+  <TestSettings name="default" id="f78a87fd-f217-4abd-ae73-d58eb2fcb77c">
+    <Deployment runDeploymentRoot="_aris-PORTEGE-Z930_2020-10-20_00_32_09" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="730fd50c-b86a-45d4-8ec8-40be892188ec" testId="4c8da4db-ba72-982e-aed5-9bd090e0bf47" testName="Ternary_Should_HaveSpecificCfg" computerName="aris-PORTEGE-Z930" duration="00:00:00.0262030" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="730fd50c-b86a-45d4-8ec8-40be892188ec">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/common_constructs.exe'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Library.CilControlFlowGraph..ctor(String module, String type, String method) in /home/aris/di/LinearIr/LinearIr.Library/cil-cfg/CilControlFlowGraph.cs:line 112
+   at LinearIr.Test.CilControlFlowGraphTest.Ternary_Should_HaveSpecificCfg() in /home/aris/di/LinearIr/LinearIr.Test/CilControlFlowGraphTest.cs:line 29</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="da1dfffe-ecd4-4cc3-bde5-72b4e94ac2be" testId="69354428-c25d-516c-c850-7e5cafaa37d2" testName="WhileLoop_Should_Have4BasicBlocks" computerName="aris-PORTEGE-Z930" duration="00:00:00.0011970" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="da1dfffe-ecd4-4cc3-bde5-72b4e94ac2be">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/common_constructs.exe'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Library.CilControlFlowGraph..ctor(String module, String type, String method) in /home/aris/di/LinearIr/LinearIr.Library/cil-cfg/CilControlFlowGraph.cs:line 112
+   at LinearIr.Test.CilControlFlowGraphTest.WhileLoop_Should_Have4BasicBlocks() in /home/aris/di/LinearIr/LinearIr.Test/CilControlFlowGraphTest.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="2c7ef448-5588-40d2-ac11-6ed01455c6bc" testId="e16e2442-b941-4d42-0167-fd52e4a23083" testName="Correspondence1To1_Should_ExistBetweenInstructions_InCfgTravers" computerName="aris-PORTEGE-Z930" duration="00:00:00.0004120" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="2c7ef448-5588-40d2-ac11-6ed01455c6bc">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/Mono.Cecil.dll'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Test.LinearIrTest.Setup() in /home/aris/di/LinearIr/LinearIr.Test/LinearIrTest.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="dd7f4b2d-5059-44ff-b34d-0909b6851adb" testId="c86aa416-5f3e-2e08-1f37-03e4a3a2bfc4" testName="AllInstructions_Should_HavePositiveRegisterIndex_InCfgTraverse" computerName="aris-PORTEGE-Z930" duration="00:00:00.0024110" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="dd7f4b2d-5059-44ff-b34d-0909b6851adb">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/Mono.Cecil.dll'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Test.LinearIrTest.Setup() in /home/aris/di/LinearIr/LinearIr.Test/LinearIrTest.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="45b6b106-26c9-4007-9465-f05a685bc6d6" testId="8570884a-d77c-48a3-1559-c3b21865cb56" testName="AllInstructions_Should_HavePositiveRegisterIndex_InForwardPass" computerName="aris-PORTEGE-Z930" duration="00:00:00.0004690" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="45b6b106-26c9-4007-9465-f05a685bc6d6">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/Mono.Cecil.dll'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Test.LinearIrTest.Setup() in /home/aris/di/LinearIr/LinearIr.Test/LinearIrTest.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="b0804447-d8f1-4db4-825d-243ab11bf551" testId="bb94fc5f-1496-ba43-0672-d029b4f2fc05" testName="RetInstruction_Should_ReturnRegister0_InCfgTraverse" computerName="aris-PORTEGE-Z930" duration="00:00:00.0006010" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0804447-d8f1-4db4-825d-243ab11bf551">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/Mono.Cecil.dll'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Test.LinearIrTest.Setup() in /home/aris/di/LinearIr/LinearIr.Test/LinearIrTest.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bad50af9-85f9-4a5a-9864-a252e5536552" testId="3aad12d6-f494-714e-f13f-9b5fac896bcb" testName="RetInstruction_Should_ReturnRegister0_InSingleForwardPass" computerName="aris-PORTEGE-Z930" duration="00:00:00.0006660" startTime="2020-10-20T00:32:09.0000000+03:00" endTime="2020-10-20T00:32:09.0000000+03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bad50af9-85f9-4a5a-9864-a252e5536552">
+      <Output>
+        <ErrorInfo>
+          <Message>System.IO.DirectoryNotFoundException : Could not find a part of the path '/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/sample-cil/Mono.Cecil.dll'.</Message>
+          <StackTrace>   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirectory, Func`2 errorRewriter)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode)
+   at System.IO.FileStream.OpenHandle(FileMode mode, FileShare share, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.GetFileStream(String fileName, FileMode mode, FileAccess access, FileShare share)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName, ReaderParameters parameters)
+   at Mono.Cecil.ModuleDefinition.ReadModule(String fileName)
+   at LinearIr.Test.LinearIrTest.Setup() in /home/aris/di/LinearIr/LinearIr.Test/LinearIrTest.cs:line 18</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="Correspondence1To1_Should_ExistBetweenInstructions_InCfgTravers" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="e16e2442-b941-4d42-0167-fd52e4a23083">
+      <Execution id="2c7ef448-5588-40d2-ac11-6ed01455c6bc" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.LinearIrTest" name="Correspondence1To1_Should_ExistBetweenInstructions_InCfgTravers" />
+    </UnitTest>
+    <UnitTest name="RetInstruction_Should_ReturnRegister0_InCfgTraverse" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="bb94fc5f-1496-ba43-0672-d029b4f2fc05">
+      <Execution id="b0804447-d8f1-4db4-825d-243ab11bf551" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.LinearIrTest" name="RetInstruction_Should_ReturnRegister0_InCfgTraverse" />
+    </UnitTest>
+    <UnitTest name="Ternary_Should_HaveSpecificCfg" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="4c8da4db-ba72-982e-aed5-9bd090e0bf47">
+      <Execution id="730fd50c-b86a-45d4-8ec8-40be892188ec" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.CilControlFlowGraphTest" name="Ternary_Should_HaveSpecificCfg" />
+    </UnitTest>
+    <UnitTest name="WhileLoop_Should_Have4BasicBlocks" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="69354428-c25d-516c-c850-7e5cafaa37d2">
+      <Execution id="da1dfffe-ecd4-4cc3-bde5-72b4e94ac2be" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.CilControlFlowGraphTest" name="WhileLoop_Should_Have4BasicBlocks" />
+    </UnitTest>
+    <UnitTest name="AllInstructions_Should_HavePositiveRegisterIndex_InCfgTraverse" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="c86aa416-5f3e-2e08-1f37-03e4a3a2bfc4">
+      <Execution id="dd7f4b2d-5059-44ff-b34d-0909b6851adb" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.LinearIrTest" name="AllInstructions_Should_HavePositiveRegisterIndex_InCfgTraverse" />
+    </UnitTest>
+    <UnitTest name="AllInstructions_Should_HavePositiveRegisterIndex_InForwardPass" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="8570884a-d77c-48a3-1559-c3b21865cb56">
+      <Execution id="45b6b106-26c9-4007-9465-f05a685bc6d6" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.LinearIrTest" name="AllInstructions_Should_HavePositiveRegisterIndex_InForwardPass" />
+    </UnitTest>
+    <UnitTest name="RetInstruction_Should_ReturnRegister0_InSingleForwardPass" storage="/home/aris/di/linearir/linearir.test/bin/debug/netcoreapp3.1/linearir.test.dll" id="3aad12d6-f494-714e-f13f-9b5fac896bcb">
+      <Execution id="bad50af9-85f9-4a5a-9864-a252e5536552" />
+      <TestMethod codeBase="/home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll" adapterTypeName="executor://nunit3testexecutor/" className="LinearIr.Test.LinearIrTest" name="RetInstruction_Should_ReturnRegister0_InSingleForwardPass" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="4c8da4db-ba72-982e-aed5-9bd090e0bf47" executionId="730fd50c-b86a-45d4-8ec8-40be892188ec" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="69354428-c25d-516c-c850-7e5cafaa37d2" executionId="da1dfffe-ecd4-4cc3-bde5-72b4e94ac2be" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e16e2442-b941-4d42-0167-fd52e4a23083" executionId="2c7ef448-5588-40d2-ac11-6ed01455c6bc" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c86aa416-5f3e-2e08-1f37-03e4a3a2bfc4" executionId="dd7f4b2d-5059-44ff-b34d-0909b6851adb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8570884a-d77c-48a3-1559-c3b21865cb56" executionId="45b6b106-26c9-4007-9465-f05a685bc6d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bb94fc5f-1496-ba43-0672-d029b4f2fc05" executionId="b0804447-d8f1-4db4-825d-243ab11bf551" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="3aad12d6-f494-714e-f13f-9b5fac896bcb" executionId="bad50af9-85f9-4a5a-9864-a252e5536552" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="7" executed="7" passed="0" failed="7" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>NUnit Adapter 3.15.1.0: Test execution started
+Running all tests in /home/aris/di/LinearIr/LinearIr.Test/bin/Debug/netcoreapp3.1/LinearIr.Test.dll
+   NUnit3TestExecutor converted 7 of 7 NUnit test cases
+NUnit Adapter 3.15.1.0: Test execution complete
+</StdOut>
+    </Output>
+  </ResultSummary>
+</TestRun>
