@@ -4,7 +4,7 @@ TEST_DIR = $(ROOT_DIR)/LinearIr.Test
 LIB_DIR = $(ROOT_DIR)/LinearIr.Library
 APP_DIR = $(ROOT_DIR)/LinearIr.Application
 
-CLASSES = $(LIB_DIR)/linear-ir/LinearIr.cs  \
+CLASSES = $(LIB_DIR)/linear-ir/AbstractLinearIr.cs  \
 	$(LIB_DIR)/linear-ir/LinearIrInstruction.cs  \
 	$(LIB_DIR)/extensions/InstructionExtensions.cs  \
 	$(LIB_DIR)/cil-cfg/CilControlFlowGraph.cs  \

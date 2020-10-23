@@ -50,9 +50,9 @@ namespace LinearIr.Library
     ///   appropriate conversion algorithm.
     /// </summary>
     /// <param name="methodDefinition"> A method definition </param>
-    public LinearIr GetLinearIr(MethodDefinition methodDefinition)
+    public AbstractLinearIr GetLinearIr(MethodDefinition methodDefinition)
     {
-      LinearIr linearIr;
+      AbstractLinearIr linearIr;
       if (Algorithm == "cfgtraverse")
         linearIr = new CfgTraverseLinearIr(methodDefinition);
       else

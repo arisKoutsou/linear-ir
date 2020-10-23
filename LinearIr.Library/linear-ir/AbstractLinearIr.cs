@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LinearIr.Library
 {
-    public abstract partial class LinearIr {
+    public abstract partial class AbstractLinearIr {
 
     /// <summary>
     ///   This represents the size of the evaluation stack
@@ -24,7 +24,7 @@ namespace LinearIr.Library
 
     public int MaxRegisterCount { get; protected set; }
 
-    protected LinearIr(MethodDefinition methodDefinition)
+    protected AbstractLinearIr(MethodDefinition methodDefinition)
     {
       MethodDefinition = methodDefinition;
     }

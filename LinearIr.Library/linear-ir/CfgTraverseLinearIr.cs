@@ -4,7 +4,7 @@ using Mono.Cecil;
 
 namespace LinearIr.Library 
 {
-  public class CfgTraverseLinearIr : LinearIr
+  public class CfgTraverseLinearIr : AbstractLinearIr
   {
     private CilControlFlowGraph cfg;
 

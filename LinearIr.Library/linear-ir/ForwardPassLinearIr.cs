@@ -8,7 +8,7 @@ namespace LinearIr.Library
   ///   This object performs a single pass on the method's instructions
   ///   and generates the linear ir code.
   /// </summary>
-  public class ForwardPassLinearIr : LinearIr
+  public class ForwardPassLinearIr : AbstractLinearIr
   {
     /// <summary>
     ///   A map from branch targets to the stack size at before
