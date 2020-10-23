@@ -1,18 +1,18 @@
 BUILD_DIR = .
 ROOT_DIR = ..
 TEST_DIR = $(ROOT_DIR)/LinearIr.Test
-LIB_DIR = $(ROOT_DIR)/LinearIr.Library
+LIB_DIR = $(ROOT_DIR)/LinearIr
 APP_DIR = $(ROOT_DIR)/LinearIr.Application
 
-CLASSES = $(LIB_DIR)/linear-ir/AbstractLinearIr.cs  \
-	$(LIB_DIR)/linear-ir/LinearIrInstruction.cs  \
+CLASSES = $(LIB_DIR)/ir-convert/AbstractLinearIr.cs  \
+	$(LIB_DIR)/ir-convert/LinearIrInstruction.cs  \
 	$(LIB_DIR)/extensions/InstructionExtensions.cs  \
-	$(LIB_DIR)/cil-cfg/CilControlFlowGraph.cs  \
-	$(LIB_DIR)/cil-cfg/CilBasicBlock.cs  \
+	$(LIB_DIR)/cfg/CilControlFlowGraph.cs  \
+	$(LIB_DIR)/cfg/CilBasicBlock.cs  \
 	$(LIB_DIR)/ir-dump/IrPrintingPolicy.cs  \
 	$(LIB_DIR)/ir-dump/LinearIrDump.cs  \
-	$(LIB_DIR)/linear-ir/CfgTraverseLinearIr.cs  \
-	$(LIB_DIR)/linear-ir/ForwardPassLinearIr.cs  \
+	$(LIB_DIR)/ir-convert/CfgTraverseLinearIr.cs  \
+	$(LIB_DIR)/ir-convert/ForwardPassLinearIr.cs  \
 
 DOXYGEN_CONFIG = $(ROOT_DIR)/doxygen.config
 
