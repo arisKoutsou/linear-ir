@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>LinearIr</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Aristotelis Koutsouridis</Authors>
     <Company>University of Athens</Company>
     <PackageTags>Mono;CLI;NetCore;Program Analysis;Intermediate Representation</PackageTags>
