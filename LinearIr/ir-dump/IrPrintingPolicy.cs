@@ -1,6 +1,6 @@
 using System;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   /// <summary>
   ///   Container class for some printing configurations about 

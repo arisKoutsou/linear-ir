@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   /// <summary>
   ///   This object performs a single pass on the method's instructions

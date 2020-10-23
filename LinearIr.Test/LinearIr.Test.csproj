@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinearIr.Library\LinearIr.Library.csproj" />
+    <ProjectReference Include="..\LinearIr\LinearIr.csproj" />
   </ItemGroup>
 
 </Project>

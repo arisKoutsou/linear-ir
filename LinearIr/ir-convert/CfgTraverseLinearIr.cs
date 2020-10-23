@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mono.Cecil;
 
-namespace LinearIr.Library 
+namespace LinearIr 
 {
   public class CfgTraverseLinearIr : AbstractLinearIr
   {

@@ -3,7 +3,7 @@ using System.Linq;
 using Mono.Cecil;
 using Mono.Cecil.Cil;
 using NUnit.Framework;
-using LinearIr.Library;
+using LinearIr;
 
 namespace LinearIr.Test
 {

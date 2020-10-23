@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Mono.Cecil.Cil;
 using System.Linq;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   /// <summary>
   ///   Represents a basic block of the CFG representation generated for CIL code.

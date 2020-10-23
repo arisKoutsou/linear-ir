@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Mono.Options;
-using LinearIr.Library;
+using LinearIr;
 
 namespace LinearIr.Application
 {

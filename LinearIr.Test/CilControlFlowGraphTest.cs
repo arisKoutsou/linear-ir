@@ -1,6 +1,6 @@
 using System.Linq;
 using NUnit.Framework;
-using LinearIr.Library;
+using LinearIr;
 
 namespace LinearIr.Test
 {

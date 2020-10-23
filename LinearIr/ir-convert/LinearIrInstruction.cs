@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Mono.Cecil.Cil;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   public class LinearIrInstruction {
 

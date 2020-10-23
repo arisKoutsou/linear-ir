@@ -4,7 +4,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Mono.Cecil.Cil;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   ///<summary>
   ///   Represents the control flow graph that is produced for the CIL code inside a method.

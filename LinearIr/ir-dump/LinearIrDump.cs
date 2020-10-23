@@ -2,7 +2,7 @@ using System;
 using Mono.Cecil;
 using System.Linq;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   /// <summary>
   ///   This class contains utilities for printing whole modules of linear ir,

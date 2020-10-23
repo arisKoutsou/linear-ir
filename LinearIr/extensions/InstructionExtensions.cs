@@ -2,7 +2,7 @@ using System;
 using Mono.Cecil.Cil;
 using System.Collections.Generic;
 
-namespace LinearIr.Library
+namespace LinearIr
 {
   /// <summary>
   ///   Static Extension class for Cecil Instruction Objects.
